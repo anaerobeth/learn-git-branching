@@ -1,0 +1,19 @@
+http://pcottle.github.io/learnGitBranching
+Juggling Commits #2
+
+If you haven't completed Juggling Commits #1 (the previous level), please do so before continuing
+
+As you saw in the last level, we used rebase -i to reorder the commits. Once the commit we wanted to change was on top, we could easily --amend it and re-order back to our preferred order.
+
+The only issue here is that there is a lot of reordering going on, which can introduce rebase conflicts. Let's look at another method with git cherry-pick
+
+So in this level, let's accomplish the same objective of amending C2 once but avoid using rebase -i. I'll leave it up to you to figure it out! :D
+
+Remember, the exact number of apostrophe's (') on the commit are not important, only the relative differences. For example, I will give credit to a tree that matches the goal tree but has one extra apostrophe everywhere
+
+My Solution:
+$ git checkout master
+$ git cherry-pick C2
+$ git commit --amend
+$ git cherry-pick caption
+
