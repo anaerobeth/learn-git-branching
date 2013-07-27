@@ -1,0 +1,39 @@
+http://pcottle.github.io/learnGitBranching
+Branch Spaghetti
+WOAHHHhhh Nelly! We have quite the goal to reach in this level.
+Here we have master that is a few commits ahead of branches one two and three. For whatever reason, we need to update these three other branches with modified versions of the last few commits on master.
+Branch one needs a re-ordering and a deletion of C5. two needs pure reordering, andthree only needs one commit!
+We will let you figure out how to solve this one -- make sure to check out our solution afterwards with show solution.
+
+My solutions:
+#First attempt - 10 steps
+$ git checkout C1
+$ git cherry-pick C5
+$ git checkout master
+$ git rebase -i one
+$ git checkout master
+$ git rebase -i C5'
+$ git branch -f one C2'
+$ git branch -f three C2
+$ git branch -f two C2''
+$ git branch -f master C5
+
+#Second attempt - 10 steps
+reset    
+$ git rebase -i one    
+$ git branch -f one master    
+$ git checkout two    
+$ git cherry-pick C5    
+$ git checkout master    
+$ git rebase -i two    
+$ git branch -f three C2    
+$ git checkout two    
+$ git branch -f master C5    
+$ git branch -f two C2''
+
+#Optimal solution
+$ git checkout one    
+$ git cherry-pick C4 C3 C2    
+$ git checkout two    
+$ git cherry-pick C5 C4 C3 C2    
+$ git branch -f three C2
