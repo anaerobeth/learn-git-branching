@@ -1,0 +1,22 @@
+http://pcottle.github.io/learnGitBranching
+
+Specifying Parents
+
+To complete this level, create a new branch at the specified destination.
+Obviously it would be easy to specify the commit directly (with something like C6), but I challenge you to use the modifiers we talked about instead!
+
+Use `git branch bugWork` with a target commit to create the missing reference.
+
+My solutions:
+
+#Three steps
+git checkout HEAD~^2~
+git branch bugWork
+git checkout master
+
+#Two steps
+git checkout -b bugWork HEAD~^2~
+git checkout master
+
+#One step
+git branch bugWork HEAD~^2~
